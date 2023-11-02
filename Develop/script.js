@@ -55,59 +55,55 @@ var upperCasedCharacters = [
   'Y',
   'Z',
 ];
+var passwordGen = '';
 
 
 function generatePassword() {
-  // var index = Math.floor(Math.random() * alphabet.length);
-  // var randAlphabet = alphabet[index];
-  // var options = Math.floor(Math.random() * specialCharacter.length)
-  // var randSCharacters = specialCharacter[options];
-  // var randNumber = Math.floor(Math.random() * numbers.length);
-
-  var characters = window.confirm("Do you want the password to have Lowercased Characters")
+  passwordGen = '';
+  var characters = window.confirm("Do you want the password to have Lowercased Characters");
   var numeric = window.confirm("Do you want the password to have Numbers?");
   var Uppercase = window.confirm("Do you want the password to have Uppercased Characters?");
   var special = window.confirm("Do you want the password to have Special Characters");
 
-  var minAmount = window.prompt("Minimum passcode?")
+  var passAmount = window.prompt("Minimum passcode?")
   var combinedCharacters = [];
 
   if (numeric) {
-    // combinedCharacters.concat(numbers);
-    combinedCharacters = combinedCharacters + numbers;
+    combinedCharacters = combinedCharacters.concat(numbers);
+    
   }
 
   if (Uppercase) {
-    // combinedCharacters.concat(upperCasedCharacters);
-    combinedCharacters = combinedCharacters + upperCasedCharacters;
+    combinedCharacters = combinedCharacters.concat(upperCasedCharacters);
   }
 
   if (special) {
-    // combinedCharacters.concat(specialCharacters);
-    combinedCharacters = combinedCharacters + specialCharacters;
+     combinedCharacters = combinedCharacters.concat(specialCharacters);
   }
 
   if (characters) {
-    // combinedCharacters.concat(alphabet);
-    combinedCharacters = combinedCharacters + alphabet;
+     combinedCharacters = combinedCharacters.concat(alphabet);
   }
 
-  if (minAmount > 126) {
+  if (passAmount > 126) {
     window.alert("Too many characters!");
-    writePassword();
-    return
+    return;
   }
-  else if (minAmount < 8) {
+  else if (passAmount < 8) {
     window.alert("Not enough characters!");
-    writePassword();
-    return
+    return;
   }
   else {
     // writePassword();
-    window.alert(combinedCharacters);
+    for (i=0; i < passAmount; i++){
+      var randomCharIndex = Math.floor(Math.random() * combinedCharacters.length);
+      var randomChar = combinedCharacters[randomCharIndex];
+      passwordGen = passwordGen + randomChar;
+    }
+    return;
   }
-
 }
+
 
 // Write password to the #password input
 function writePassword() {
@@ -115,9 +111,8 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  passwordText.value = passwordGen;
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-generatePassword();
