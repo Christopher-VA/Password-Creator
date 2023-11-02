@@ -40,7 +40,7 @@ user had selected.
 ```
 
 ## Images
-```md
+```
 ![Alt text](Assets/images/03-javascript-homework-demo.png)
 ![Alt text](Assets/images/Character-Amount.PNG)
 ![Alt text](Assets/images/Example-of-password-created.PNG)
@@ -49,7 +49,7 @@ user had selected.
 
 ## Links
 ```
-Website: https://christopher-va.github.io/Password-Creator/
-Github: https://github.com/Christopher-VA/Password-Creator
+Website: [Link text](https://christopher-va.github.io/Password-Creator/)
+Github: [Link text](https://github.com/Christopher-VA/Password-Creator)
 ```
 
